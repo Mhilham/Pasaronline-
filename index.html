@@ -100,7 +100,24 @@
       </ul>
       <p class="text-center text-body-secondary">&copy; 2023 Company, Inc</p>
     </footer>
+    
+    <script typo="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js';
+import { 
+  getAuth,
+  signInWithPopup,
+  signOut,
+  onAuthStateChanged,
+  GoogleAuthProvider,
+  
+} from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js';
+import { konfigurasifirebase } from '/konfigurasi-firebase.js';
 
+const app = initializeApp (konfigurasifirebase);
+const provider = new GoogleAuthProvider();
+const auth = getAuth();
+
+    </script>
 </body>
 
 </html>
