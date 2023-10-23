@@ -1,9 +1,8 @@
-export  const konfigurasifirebase = {
-    apiKey: "AIzaSyAZe_k0qbCwRK8DlwSmskyTxlTks73Wc94",
-    authDomain: "contoh-perojek.firebaseapp.com",
-    projectId: "contoh-perojek",
-    storageBucket: "contoh-perojek.appspot.com",
-    messagingSenderId: "501042387828",
-    appId: "1:501042387828:web:1a4b4a0ad9547aff7aea21",
-    measurementId: "G-X8PZ8TMF02"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyDFsnRNxfKpVQub0QQU14VrWySM7yGBdcQ",
+  authDomain: "contoh-proyek-74c60.firebaseapp.com",
+  projectId: "contoh-proyek-74c60",
+  storageBucket: "contoh-proyek-74c60.appspot.com",
+  messagingSenderId: "506642192170",
+  appId: "1:506642192170:web:b74ce44fb50b51cdbef053"
+};
