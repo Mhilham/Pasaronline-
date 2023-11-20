@@ -99,33 +99,31 @@
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js';
     import { konfigurasiFirebase } from '/Pasaronline-/konfigurasi-firebase.js';
-    import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js';
+    import { getFirestore, collection, getDocs addDoc } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js';
 
     const app = initializeApp(konfigurasiFirebase);
     const db = getFirestore(app);
 
     $(document).ready(async function() {
-    let namabarang = $("#nama-barang");
-    let hargabarang = $("harga-barang");
+      let namabarang = $("#nama-barang");
+      let hargabarang = $("harga-barang");
 
-    $("#tombol-simpan").click(async function(event) {
-      event.preventDefault();
-    })
+      $("#tombol-simpan").click(async function(event) {
+        event.preventDefault();
 
-    try {
-      const barangRef = await addDoc(collection(db, "barang"), {
-        foto: "",
-        nama: namabarang.val(),
-        harga: hargabarang.val()
+        try {
+          const barangRef = await addDoc(collection(db, "barang"), {
+            foto: "",
+            nama: namabarang.val(),
+            harga: hargabarang.val()
+          });
+
+          $("#pesan").html("berhasil menambah barang" + namabarang.val());
+        } catch (err) {
+          $("#pesan").html("gagal menambah barang" + namabarang.val() + err);
+        }
       });
-
-      $("#pesan").html("berhasil menambah barang" + namabarang.val());
-    } catch (err) {
-      $("#pesan").html("gagal menambah barang" + namabarang.val() + err);
-
-    }
     });
-    
   </script>
 
 
