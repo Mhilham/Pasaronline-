@@ -110,13 +110,13 @@
       let hargabarang = $("#harga-barang");
 
       $("#tombol-simpan").click(async function(event) {
-    lg    event.preventDefault();
+      event.preventDefault();
 
         const fotobarang = $("#foto-barang").prop(files)[0];
 
         try {
           const barangRef = await addDoc(collection(db, "barang"), {
-            foto: namabarang.val() + ".jpg";
+            foto: namabarang.val() + ".jpg",
             nama: namabarang.val(),
             harga: hargabarang.val()
           });
