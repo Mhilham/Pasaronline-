@@ -101,7 +101,7 @@
         const querySnapshot = await getDocs(collection(db, "barang"));
         let daftarBarang = [];
         querySnapshot.forEach((doc) => {
-          let namafilepoto = doc .data().poto;
+          let namafilepoto = doc.data().foto;
           
          if (namafilepoto !='') {
            getDownloadURL(ref(storage,namafilepoto)).
