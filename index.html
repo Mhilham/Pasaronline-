@@ -107,7 +107,7 @@
            getDownloadURL(ref(storage,namafilepoto)).
            then((urlpoto)=>{
              const poto = document.getElementById(doc.id);
-             poto setAttribute( 'src',urlpoto);
+             poto.setAttribute( 'src',urlpoto);
            })
          }
           
@@ -129,7 +129,7 @@
         kumpulanBarang.forEach((element) => {
           elDaftarBarang.append(
             '<div class="card">' +
-            '<img id="'+getlement.id +'"src="https://picsum.photos/100/60" class="card-img-top">' +
+            '<img id="'+element.id +'"src="https://picsum.photos/100/60" class="card-img-top">' +
             '<div class="card-body">' +
             '<span>' + element.nama + ', ' + element.harga + '</span>' +
             '</div>' +
