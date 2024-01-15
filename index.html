@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<DOCTYPE html>
 <html lang="en" class="h-100">
 
 <head>
@@ -88,21 +88,33 @@
       } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js';
       import { konfigurasiFirebase } from '/Pasaronline-/konfigurasi-firebase.js';
       import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+      import { getstorage,ref getDownloadURL} from "http://ww.gstatic.com/firebesejs/10.4.0/firebase-storage.js";
+      
 
       const app = initializeApp(konfigurasiFirebase);
       const provider = new GoogleAuthProvider();
       const auth = getAuth();
       const db = getFirestore(app);
+      const storage = getStorage();
 
       async function ambilDaftarBarang() {
         const querySnapshot = await getDocs(collection(db, "barang"));
         let daftarBarang = [];
         querySnapshot.forEach((doc) => {
+          let namafilepoto = doc .data().poto;
+          
+         if (namafilepoto !='') {
+           getDownloadURL(ref(storage,namafilepoto)).
+           then((urlpoto)=>{
+             const poto = document.getElementById(doc.id);
+             poto setAttribute( 'src',urlpoto);
+           })
+         }
+          
           daftarBarang.push({
             id: doc.id,
             nama: doc.data().nama,
             harga: doc.data().harga,
-            foto: doc.data().foto
           });
         });
 
@@ -117,7 +129,7 @@
         kumpulanBarang.forEach((element) => {
           elDaftarBarang.append(
             '<div class="card">' +
-            '<img src="https://picsum.photos/100/60" class="card-img-top">' +
+            '<img id="'+getlement.id +'"src="https://picsum.photos/100/60" class="card-img-top">' +
             '<div class="card-body">' +
             '<span>' + element.nama + ', ' + element.harga + '</span>' +
             '</div>' +
@@ -151,4 +163,4 @@
     </script>
 </body>
 
-</html>
+</html>!DOCTYPE html>
